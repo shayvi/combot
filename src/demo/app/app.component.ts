@@ -121,4 +121,25 @@ public ffs: TreeModel = {value: 'hello im your bot, how can i help you?',
       console.log('There isn`t a controller for a node with id - ' + id);
     }
   }
+  public createBot(event) {
+    var string = "";
+    string = this.buildTree(this.treeFFS.tree,string);
+     alert(string);
+
+  }
+
+  private buildTree(child, string){
+   
+     if(!child.hasChildren()){
+       return string + "<node id='"+child.id+"'>" + child.value+"</node>";
+     }
+
+     string += "<node id='"+child.id+"'>" +child.value;
+      child.children.forEach((grandChild) => {
+        string = this.buildTree(grandChild,string);
+      }   );
+      
+    
+    return string + "</node>";
+  }
 }
