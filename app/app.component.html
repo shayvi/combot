@@ -1,0 +1,20 @@
+
+        <div class="tree-content">
+          <tree #treeFFS
+                [tree]="ffs">
+                <!-- (nodeRemoved)="onNodeRemoved($event)"
+                (nodeRenamed)="onNodeRenamed($event)"
+                (nodeSelected)="onNodeSelected($event)"
+                (nodeMoved)="onNodeMoved($event)"
+                (nodeCreated)="onNodeFFSCreated($event)"
+                (nodeExpanded)="onNodeExpanded($event)"
+                (nodeCollapsed)="onNodeCollapsed($event)" -->
+          </tree>
+        </div>
+
+    <div>
+        <button class="btn btn-warning btn-xl" (click)="reset()">איפוס</button>
+        <button class ="btn btn-primary btn-xl" (click)="createBot($event)" >צור בוט</button>
+    </div>
+    
+    

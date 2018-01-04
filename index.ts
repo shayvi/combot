@@ -5,12 +5,12 @@ import {
   RenamableNode,
   FoldingType,
   ChildrenLoadingFunction
-} from './src/tree.types';
+} from './tree/tree.types';
 
-import { Tree } from './src/tree';
+import { Tree } from './tree/tree';
 
-import { NodeMenuItemAction } from './src/menu/menu.events';
-import { NodeMenuItem } from './src/menu/node-menu.component';
+import { NodeMenuItemAction } from './tree/menu/menu.events';
+import { NodeMenuItem } from './tree/menu/node-menu.component';
 
 import {
   NodeEvent,
@@ -23,10 +23,10 @@ import {
   NodeCollapsedEvent,
   MenuItemSelectedEvent,
   NodeDestructiveEvent
-} from './src/tree.events';
+} from './tree/tree.events';
 
-import { TreeComponent } from './src/tree.component';
-import { TreeModule } from './src/tree.module';
+import { TreeComponent } from './tree/tree.component';
+import { TreeModule } from './tree/tree.module';
 
 export {
   Tree,

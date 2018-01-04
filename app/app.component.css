@@ -1,0 +1,42 @@
+
+    .tree-controlls {
+      width: 50px;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .tree-content {
+      display: flex;
+      flex-direction: column;
+       justify-content: center;
+      align-items: center;
+      direction: rtl;
+    }
+
+    .tree-container {
+      margin-bottom: 20px;
+
+    }
+
+    .tree-container--with-controls {
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+
+    .notice {
+      color: #e91e63;
+      font-size: 1.2em;
+      font-style: italic;
+    }
+
+    :host /deep/ .fa {
+      cursor: pointer;
+    }
+
+    :host /deep/ .fa.disabled {
+      cursor: inherit;
+      color: #757575;
+    }
+       
+    
