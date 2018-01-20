@@ -30,22 +30,17 @@ export class NodeMenuComponent implements OnInit, OnDestroy {
 
   public availableMenuItems: NodeMenuItem[] = [
     {
-      name: 'Link',
-      action: NodeMenuItemAction.NewLink,
-      cssClass: 'new-Link'
-    },
-    {
-      name: 'New node',
+      name: 'צומת חדש',
       action: NodeMenuItemAction.NewNode,
       cssClass: 'new-node'
     },
     {
-      name: 'Rename',
+      name: 'ערוך',
       action: NodeMenuItemAction.Rename,
       cssClass: 'rename'
     },
     {
-      name: 'Remove',
+      name: 'הסר',
       action: NodeMenuItemAction.Remove,
       cssClass: 'remove'
     }

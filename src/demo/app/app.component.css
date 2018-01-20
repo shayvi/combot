@@ -23,7 +23,7 @@
 
     .tree-container--with-controls {
       display: flex;
-      flex-wrap: wrap;
+      flex-wrap: nowrap;
     }
 
     .tree-demo-app {
@@ -43,13 +43,5 @@
       font-style: italic;
     }
 
-    :host /deep/ .fa {
-      cursor: pointer;
-    }
-
-    :host /deep/ .fa.disabled {
-      cursor: inherit;
-      color: #757575;
-    }
        
     

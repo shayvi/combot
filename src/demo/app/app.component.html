@@ -1,10 +1,7 @@
-    <div class="tree-demo-app">
+<div style="height:100%;">
+<div class="tree-demo-app">
       <div class="tree-container tree-container--with-controls">
-        <div class="tree-info">
-          <p class="tree-title">Welcome to ComBot!</p>
-          <p class="notice">You can create your own bot over here</p></div>
-        </div>
-        <div class="tree-content">
+        <div class="tree-content nowrap">
           <tree #treeFFS
                 [tree]="ffs"
                 (nodeRemoved)="onNodeRemoved($event)"
@@ -15,11 +12,5 @@
                 (nodeExpanded)="onNodeExpanded($event)"
                 (nodeCollapsed)="onNodeCollapsed($event)">
           </tree>
-        </div>
-      <div class="tree-container">
-    </div>
-    <div class="tree-controlls">
-        <button button (click)="reset()">reSet</button>
-    </div>
-    
-    <a (click)="createBot($event)" >Click Here to Export Bot! </a>
+        </div></div></div>
+    <button class="btn" type="button" (click)="createBot($event)" ><span>צור בוט</span></button>

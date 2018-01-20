@@ -1,6 +1,5 @@
 export enum NodeMenuItemAction {
   NewNode,
-  NewLink,
   Rename,
   Remove,
   Custom

@@ -26,7 +26,6 @@ export class AppComponent implements OnInit {
 
   private static logEvent(e: NodeEvent, message: string): void {
     console.log(e);
-    alertify.message(`${message}: ${e.node.value}`);
   }
 
   public ngOnInit(): void {

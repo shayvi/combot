@@ -3,8 +3,9 @@ import { Ng2TreeSettings, NodeEvent, RenamableNode, TreeModel } from '../../../i
 import { NodeMenuItemAction } from '../../menu/menu.events';
 import { MenuItemSelectedEvent } from '../../tree.events';
 import { NodeType } from '../../tree.types';
-
 declare const alertify: any;
+var ws = new WebSocket("ws://localhost:7200/");  
+var openmsg = "היי אני בוט לפתרון בעיות. במה אוכל לעזור?";
 
 @Component({
   selector: 'app',
@@ -17,7 +18,7 @@ export class AppComponent implements OnInit {
     rootIsVisible: true
   };
 
-public ffs: TreeModel = {value: 'hello im your bot, how can i help you?',
+public ffs: TreeModel = {value: openmsg,
     id: 1,
     Nodetype: NodeType.Root,
     children: [],
@@ -25,8 +26,7 @@ public ffs: TreeModel = {value: 'hello im your bot, how can i help you?',
           isCollapsedOnInit: true,
           leftMenu: true,
           templates: {
-            leftMenu: '<i class="fa fa-navicon"></i>',
-            leaf: '<i class="fa fa-link"></i>'
+            leftMenu: '<i class="fa fa-navicon"></i>'
           }
         },
 };
@@ -36,7 +36,6 @@ public ffs: TreeModel = {value: 'hello im your bot, how can i help you?',
 
   private static logEvent(e: NodeEvent, message: string): void {
     console.log(e);
-    alertify.message(`${message}: ${e.node.value}`);
   }
 
   public ngOnInit(): void {
@@ -98,7 +97,7 @@ public ffs: TreeModel = {value: 'hello im your bot, how can i help you?',
   public reset()
   {
     const rootId = 1;
-    this.renameFFS(rootId,'hello im your bot, how can i help you?');
+    this.renameFFS(rootId, openmsg);
     this.handleActionOnFFS(rootId, 'collapse');
     this.setChildrenFFS(rootId);
   }
@@ -121,17 +120,34 @@ public ffs: TreeModel = {value: 'hello im your bot, how can i help you?',
       console.log('There isn`t a controller for a node with id - ' + id);
     }
   }
-  public createBot(event) {
+
+  public createBot(event,controller) {
     var string = "";
     string = this.buildTree(this.treeFFS.tree,string);
-     alert(string);
-
+      try{
+        if(ws.readyState == WebSocket.OPEN){
+            ws.send((decodeURIComponent(string)));
+            ws.close;
+        }
+        else{
+            ws = new WebSocket("ws://localhost:7200/");
+            ws.send((decodeURIComponent(string)));
+            ws.close();
+        }
+      }catch(e){
+          console.log("failed sending "+e);
+          alert("try again");
+      }
+    
   }
+
 
   private buildTree(child, string){
    
      if(!child.hasChildren()){
-       return string + "<node id='"+child.id+"'>" + child.value+"</node>";
+       if (child.NodeType == NodeType.Link)
+          
+       return string + "<node id='"+child.id+"'>" + child.value+"</node>" + child;
      }
 
      string += "<node id='"+child.id+"'>" +child.value;
